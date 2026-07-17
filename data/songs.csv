@@ -9,3 +9,11 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Neon Dream,Astra Nine,k-pop,energetic,0.88,126,0.82,0.90,0.08
+12,Firework Heart,Astra Nine,k-pop,triumphant,0.85,132,0.75,0.86,0.10
+13,Cherry Blossom Vow,Yui Kanzaki,anime,romantic,0.55,96,0.70,0.60,0.45
+14,Rising Sun Oath,Kensho Battalion,anime,triumphant,0.90,150,0.68,0.72,0.15
+15,Faded Photographs,Wistful Radio,indie folk,nostalgic,0.30,68,0.35,0.40,0.80
+16,Velvet Confession,Moonlace,r&b,romantic,0.45,84,0.66,0.55,0.55
+17,Empty Platform,Grey Static,shoegaze,melancholic,0.38,74,0.28,0.42,0.60
+18,Overdrive Anthem,Astra Nine,k-pop,energetic,0.95,140,0.80,0.92,0.05
