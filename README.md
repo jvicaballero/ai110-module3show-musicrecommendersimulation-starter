@@ -11,7 +11,7 @@ Your goal is to:
 - Evaluate what your system gets right and wrong
 - Reflect on how this mirrors real world AI recommenders
 
-Replace this paragraph with your own summary of what your version does.
+This version represents each song by its genre, mood, energy, and acousticness, and represents a listener as a simple taste profile with a favorite genre, favorite mood, and target energy level. It scores every song by rewarding exact genre and mood matches and rewarding energy values close to the target, then ranks songs highest to lowest and returns the top matches with a short explanation for each pick. Along the way I found that genre carries the most weight in my scoring, which makes strong genre matches dominate the results, and that exact-string matching means a small spelling difference (like "kpop" vs "k-pop") can silently cause a real match to be missed. Testing different profiles side by side ended up teaching me as much about the hidden biases in recommender scoring as it did about the recommendations themselves.
 
 ---
 
@@ -87,6 +87,8 @@ Paste a sample of your recommender's output here as a text block so a reader can
 #   3. ...
 ```
 
+user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+
 ```
 1. Sunrise City by Neon Echo
    Score: 4.00
@@ -116,6 +118,71 @@ Paste a sample of your recommender's output here as a text block so a reader can
    Score: 1.00
    Reasons:
      - energy 0.75 close to target 0.80 (+1.00)
+
+
+user_prefs = {"genre": "k-pop", "mood": "energetic", "energy": 0.9}
+1. Neon Dream by Astra Nine
+   Score: 4.00
+   Reasons:
+     - genre match: k-pop (+2.0)
+     - mood match: energetic (+1.0)
+     - energy 0.88 close to target 0.90 (+1.00)
+
+2. Overdrive Anthem by Astra Nine
+   Score: 4.00
+   Reasons:
+     - genre match: k-pop (+2.0)
+     - mood match: energetic (+1.0)
+     - energy 0.95 close to target 0.90 (+1.00)
+
+3. Firework Heart by Astra Nine
+   Score: 3.00
+   Reasons:
+     - genre match: k-pop (+2.0)
+     - energy 0.85 close to target 0.90 (+1.00)
+
+4. Rising Sun Oath by Kensho Battalion
+   Score: 1.00
+   Reasons:
+     - energy 0.90 close to target 0.90 (+1.00)
+
+5. Storm Runner by Voltline
+   Score: 1.00
+   Reasons:
+     - energy 0.91 close to target 0.90 (+1.00)
+
+
+
+user_prefs =  {"genre": "anime", "mood": "sad", "energy": 0.3}
+1. Cherry Blossom Vow by Yui Kanzaki
+   Score: 2.94
+   Reasons:
+     - genre match: anime (+2.0)
+     - energy 0.55 close to target 0.30 (+0.94)
+
+2. Rising Sun Oath by Kensho Battalion
+   Score: 2.64
+   Reasons:
+     - genre match: anime (+2.0)
+     - energy 0.90 close to target 0.30 (+0.64)
+
+3. Faded Photographs by Wistful Radio
+   Score: 1.00
+   Reasons:
+     - energy 0.30 close to target 0.30 (+1.00)
+
+4. Spacewalk Thoughts by Orbit Bloom
+   Score: 1.00
+   Reasons:
+     - energy 0.28 close to target 0.30 (+1.00)
+
+5. Library Rain by Paper Lanterns
+   Score: 1.00
+   Reasons:
+     - energy 0.35 close to target 0.30 (+1.00)
+
+
+
 ```
 
 **Screenshot or video** _(optional)_: <!-- Insert a screenshot or demo video link here -->
@@ -129,6 +196,8 @@ Use this section to document the experiments you ran. For example:
 - What happened when you changed the weight on genre from 2.0 to 0.5
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
+
+I tested a genre-only user against a mood/energy-only user with no genre set, and found genre almost always won even when the mood/energy match was near-perfect, since a genre hit alone (+2.0) outweighs a full mood+energy+acoustic match (+2.5 max but rarely achieved). I also temporarily commented out the mood-matching check to see how much it actually influenced the anime/sad profile, and confirmed the ranking didn't change at all since neither anime song in the catalog has a "sad" mood to begin with.
 
 ---
 
