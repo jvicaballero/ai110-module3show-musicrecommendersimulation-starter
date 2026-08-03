@@ -1,0 +1,5 @@
+Listener profile / request:
+{{PROFILE}}
+
+Recommend 4 real K-pop songs matching this profile.
+Return ONLY the JSON array described in your instructions.

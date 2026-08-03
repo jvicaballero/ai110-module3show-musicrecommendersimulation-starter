@@ -1,0 +1,16 @@
+flowchart TD
+    A[User opens Streamlit UI] --> B{Dropdown pick or custom text?}
+    B -->|Dropdown: sample profile| C[SAMPLE_PROFILES lookup]
+    B -->|Custom free-text prompt| D[User-typed profile text]
+    C --> E[profile_text]
+    D --> E[profile_text]
+    E --> F["build_user_prompt() fills {{PROFILE}} in kpop_recommender_user.txt"]
+    F --> G["client.complete(system_prompt, user_prompt)\n(MockClient or GeminiClient)"]
+    G --> H[Raw text response]
+    H --> I["validate_songs(): parse JSON + schema check\n(exactly 4 items, title/artist/reason non-empty,\nmatch_score 1-10, no dupes)"]
+    I -->|Valid| J[Render 4 song cards in Streamlit]
+    I -->|Invalid| K["Retry once: stricter kpop_recommender_retry_system.txt\nclient.complete(retry_system_prompt, user_prompt)"]
+    K --> L[Raw retry response]
+    L --> M[validate_songs 2nd check]
+    M -->|Valid| J
+    M -->|Still invalid| N[st.error graceful fallback message]

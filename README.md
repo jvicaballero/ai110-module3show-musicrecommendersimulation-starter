@@ -1,5 +1,10 @@
 # 🎵 Music Recommender Simulation
 
+> **Final project extension:** this repo also includes a Gemini-powered real K-pop song
+> recommender, fully documented separately in
+> [`KPOP_RECOMMENDER_README.md`](KPOP_RECOMMENDER_README.md). It's a second, independent feature —
+> everything below describes the original submission only.
+
 ## Project Summary
 
 In this project you will build and explain a small music recommender system.
