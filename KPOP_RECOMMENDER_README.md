@@ -230,6 +230,9 @@ Command: `streamlit run streamlit_app.py`, mode = "Gemini (requires API key)".
    Match score: 9/10
    Delivers a heavy bassline and swaggering hip-hop verses designed for maximum impact.
 ```
+Walkthrough Gif: 
+<img width="1265" height="946" alt="Kpop Song Recommender Walkthrough" src="https://github.com/user-attachments/assets/46be4eb8-8c55-4de6-8ba8-014f7acaccd1" />
+
 
 (Note: asking the same profile again may return a different mix of songs — this is expected, see
 ["Temperature: Controlling Variety vs. Consistency"](#temperature-controlling-variety-vs-consistency) above.)
